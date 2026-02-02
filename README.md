@@ -1,4 +1,4 @@
-# TravelMaster - Лендинг для планирования путешествий
+# [TravelMaster - Лендинг для планирования путешествий](https://alexgurzhiev.github.io/Travel-Planing-Service/)
 
 ## Описание проекта
 Современный лендинг для сервиса планирования путешествий, созданный с использованием Tailwind CSS и HTML5.
