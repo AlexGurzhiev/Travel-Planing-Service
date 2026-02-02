@@ -1,0 +1,87 @@
+/* styles.css */
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Герой-секция с фоновым изображением */
+.hero-bg {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Анимация для карточек направлений */
+.destination-card:hover .destination-img {
+    transform: scale(1.05);
+    transition: transform 0.5s ease;
+}
+
+/* Анимация для шагов бронирования */
+.booking-step:hover {
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+/* Стили для заголовков секций */
+.section-title {
+    position: relative;
+    padding-bottom: 15px;
+}
+
+    .section-title:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: #3b82f6;
+    }
+
+/* Центрированный заголовок */
+.section-title-center:after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Дополнительные стили для красоты */
+.shadow-soft {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.gradient-text {
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Адаптивные изображения */
+.responsive-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Анимация появления */
+.fade-in {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

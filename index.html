@@ -1,0 +1,686 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelMaster - Умное планирование путешествий</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Навигация -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-sm shadow-lg z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-globe-americas text-white text-xl"></i>
+                    </div>
+                    <span class="text-2xl font-bold text-gray-800">TravelMaster</span>
+                </div>
+
+                <div class="hidden lg:flex space-x-8">
+                    <a href="#main" class="text-gray-700 hover:text-blue-600 font-medium">Главная</a>
+                    <a href="#destinations" class="text-gray-700 hover:text-blue-600 font-medium">Направления</a>
+                    <a href="#booking" class="text-gray-700 hover:text-blue-600 font-medium">Бронирование</a>
+                    <a href="#routes" class="text-gray-700 hover:text-blue-600 font-medium">Маршруты</a>
+                    <a href="#account" class="text-gray-700 hover:text-blue-600 font-medium">Личный кабинет</a>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <button class="lg:hidden text-gray-700">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                    <a href="#login" class="hidden lg:block px-6 py-2 text-blue-600 font-medium border border-blue-600 rounded-lg hover:bg-blue-50">Войти</a>
+                    <a href="#signup" class="px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-medium hover:opacity-90 transition">Начать планировать</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Герой-секция -->
+    <section id="main" class="hero-bg text-white pt-32 pb-24">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">Откройте мир с TravelMaster</h1>
+                <p class="text-xl mb-10 text-gray-200">
+                    Планируйте поездки мечты, находите лучшие маршруты и бронируйте всё в одном месте
+                </p>
+
+                <!-- Поиск направления -->
+                <div class="bg-white rounded-xl p-2 shadow-2xl max-w-2xl mx-auto">
+                    <div class="flex flex-col md:flex-row md:space-x-2">
+                        <div class="flex-1 mb-2 md:mb-0">
+                            <input type="text" placeholder="Куда хотите поехать?"
+                                   class="w-full px-4 py-3 text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div class="flex-1 mb-2 md:mb-0">
+                            <input type="date"
+                                   class="w-full px-4 py-3 text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <button class="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-bold hover:opacity-90 transition">
+                            <i class="fas fa-search mr-2"></i> Найти
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Статистика -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold mb-2">150+</div>
+                        <div class="text-gray-300">Стран</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold mb-2">25K+</div>
+                        <div class="text-gray-300">Маршрутов</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold mb-2">100K+</div>
+                        <div class="text-gray-300">Отзывов</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold mb-2">4.9</div>
+                        <div class="text-gray-300">Рейтинг</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Популярные направления (соответствует "Страница направления" из MindMap) -->
+    <section id="destinations" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4 section-title section-title-center">Популярные направления</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">Исследуйте лучшие места для путешествий по всему миру</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Направление 1 -->
+                <div class="destination-card bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <!-- МЕСТО ДЛЯ ФОТО 1 -->
+                    <div class="h-64 overflow-hidden">
+                        <img src="assets/images/Italy_Rim.jpg" alt="Италия">
+                        <div class="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                            Популярно
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-gray-800">Италия, Рим</h3>
+                            <div class="flex items-center text-yellow-500">
+                                <i class="fas fa-star"></i>
+                                <span class="ml-1 font-bold">4.8</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-6">Вечный город с богатой историей, искусством и кухней</p>
+
+                        <!-- Блоки из MindMap: Что посмотреть, Где остановиться, Советы, Погода -->
+                        <div class="grid grid-cols-2 gap-3 mb-6">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-2">
+                                    <i class="fas fa-eye text-blue-600"></i>
+                                </div>
+                                <span class="text-sm text-gray-700">25+ мест</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-2">
+                                    <i class="fas fa-hotel text-green-600"></i>
+                                </div>
+                                <span class="text-sm text-gray-700">120 отелей</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-2">
+                                    <i class="fas fa-lightbulb text-purple-600"></i>
+                                </div>
+                                <span class="text-sm text-gray-700">Советы</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center mr-2">
+                                    <i class="fas fa-sun text-yellow-600"></i>
+                                </div>
+                                <span class="text-sm text-gray-700">+24°C</span>
+                            </div>
+                        </div>
+
+                        <a href="#" class="block text-center px-4 py-3 bg-blue-50 text-blue-600 rounded-lg font-medium hover:bg-blue-100 transition">
+                            <i class="fas fa-map-marked-alt mr-2"></i> Смотреть маршруты
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Направление 2 -->
+                <div class="destination-card bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <!-- МЕСТО ДЛЯ ФОТО 2 -->
+                    <div class="h-64 overflow-hidden">
+                        <img src="assets/images/Japan_Tokyo.jpg" alt="Япония">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-gray-800">Япония, Токио</h3>
+                            <div class="flex items-center text-yellow-500">
+                                <i class="fas fa-star"></i>
+                                <span class="ml-1 font-bold">4.9</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-6">Современные технологии и древние традиции в гармонии</p>
+
+                        <div class="grid grid-cols-2 gap-3 mb-6">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-2">
+                                    <i class="fas fa-eye text-blue-600"></i>
+                                </div>
+                                <span class="text-sm text-gray-700">30+ мест</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-2">
+                                    <i class="fas fa-hotel text-green-600"></i>
+                                </div>
+                                <span class="text-sm text-gray-700">95 отелей</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-2">
+                                    <i class="fas fa-lightbulb text-purple-600"></i>
+                                </div>
+                                <span class="text-sm text-gray-700">Советы</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center mr-2">
+                                    <i class="fas fa-sun text-yellow-600"></i>
+                                </div>
+                                <span class="text-sm text-gray-700">+18°C</span>
+                            </div>
+                        </div>
+
+                        <a href="#" class="block text-center px-4 py-3 bg-blue-50 text-blue-600 rounded-lg font-medium hover:bg-blue-100 transition">
+                            <i class="fas fa-map-marked-alt mr-2"></i> Смотреть маршруты
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Направление 3 -->
+                <div class="destination-card bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <!-- МЕСТО ДЛЯ ФОТО 3 -->
+                    <div class="h-64 overflow-hidden">
+                        <img src="assets/images/Tailand_Phuket.jpg" alt="Таиланд">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-gray-800">Таиланд, Пхукет</h3>
+                            <div class="flex items-center text-yellow-500">
+                                <i class="fas fa-star"></i>
+                                <span class="ml-1 font-bold">4.7</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-6">Тропические пляжи, кристальные воды и экзотическая кухня</p>
+
+                        <div class="grid grid-cols-2 gap-3 mb-6">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-2">
+                                    <i class="fas fa-eye text-blue-600"></i>
+                                </div>
+                                <span class="text-sm text-gray-700">15+ мест</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-2">
+                                    <i class="fas fa-hotel text-green-600"></i>
+                                </div>
+                                <span class="text-sm text-gray-700">200+ отелей</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-2">
+                                    <i class="fas fa-lightbulb text-purple-600"></i>
+                                </div>
+                                <span class="text-sm text-gray-700">Советы</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center mr-2">
+                                    <i class="fas fa-sun text-yellow-600"></i>
+                                </div>
+                                <span class="text-sm text-gray-700">+32°C</span>
+                            </div>
+                        </div>
+
+                        <a href="#" class="block text-center px-4 py-3 bg-blue-50 text-blue-600 rounded-lg font-medium hover:bg-blue-100 transition">
+                            <i class="fas fa-map-marked-alt mr-2"></i> Смотреть маршруты
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#" class="inline-flex items-center text-blue-600 font-bold text-lg hover:text-blue-800">
+                    Все направления (150+)
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Бронирование (соответствует разделу "Бронирование" из MindMap) -->
+    <section id="booking" class="py-20 bg-gradient-to-r from-blue-50 to-purple-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4 section-title section-title-center">Бронирование</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">Забронируйте всё для вашей поездки в одном месте</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                <!-- Туры -->
+                <div class="booking-step bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-suitcase-rolling text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">Туры</h3>
+                    <p class="text-gray-600 text-sm mb-4">Готовые турпакеты с гидом</p>
+                    <a href="#" class="text-blue-600 text-sm font-medium">Выбрать тур →</a>
+                </div>
+
+                <!-- Жильё -->
+                <div class="booking-step bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-hotel text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">Жильё</h3>
+                    <p class="text-gray-600 text-sm mb-4">Отели и апартаменты</p>
+                    <a href="#" class="text-blue-600 text-sm font-medium">Найти жильё →</a>
+                </div>
+
+                <!-- Транспорт -->
+                <div class="booking-step bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-plane text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">Транспорт</h3>
+                    <p class="text-gray-600 text-sm mb-4">Авиа, ЖД, авто билеты</p>
+                    <a href="#" class="text-blue-600 text-sm font-medium">Забронировать →</a>
+                </div>
+
+                <!-- Аренда авто -->
+                <div class="booking-step bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-car text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">Аренда авто</h3>
+                    <p class="text-gray-600 text-sm mb-4">Прокат автомобилей</p>
+                    <a href="#" class="text-blue-600 text-sm font-medium">Арендовать →</a>
+                </div>
+
+                <!-- Страхование -->
+                <div class="booking-step bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-shield-alt text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">Страхование</h3>
+                    <p class="text-gray-600 text-sm mb-4">Туристические страховки</p>
+                    <a href="#" class="text-blue-600 text-sm font-medium">Оформить →</a>
+                </div>
+            </div>
+
+            <!-- Пример бронирования -->
+            <div class="mt-16 bg-white rounded-2xl shadow-xl p-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">Быстрое бронирование</h3>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-bold text-gray-700 mb-4">Как это работает:</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                                    1
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-800">Выберите услугу</p>
+                                    <p class="text-gray-600 text-sm">Туры, жильё, транспорт или авто</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                                    2
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-800">Укажите параметры</p>
+                                    <p class="text-gray-600 text-sm">Даты, количество человек, предпочтения</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                                    3
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-800">Забронируйте и оплатите</p>
+                                    <p class="text-gray-600 text-sm">Безопасная онлайн-оплата</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <!-- МЕСТО ДЛЯ ФОТО БРОНИРОВАНИЯ -->
+                        <div class="bg-gray-100 rounded-xl h-64 flex items-center justify-center">
+                            <div class="text-center">
+                                <i class="fas fa-calendar-check text-4xl text-gray-400 mb-4"></i>
+                                <p class="text-gray-500">Здесь будет форма бронирования</p>
+                                <p class="text-gray-400 text-sm mt-2">Или изображение процесса</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Готовые маршруты (из раздела "Страница направления") -->
+    <section id="routes" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4 section-title section-title-center">Готовые маршруты</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">Проверенные маршруты от опытных путешественников</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Маршрут 1 -->
+                <div class="bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl shadow-xl overflow-hidden">
+                    <div class="p-8 text-white">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold mb-2">Европейский тур</h3>
+                                <p class="text-blue-100">Рим → Париж → Барселона</p>
+                            </div>
+                            <div class="bg-white/20 px-3 py-1 rounded-full text-sm">
+                                10 дней
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <div class="flex justify-between text-sm mb-2">
+                                <span>Маршрут пройден:</span>
+                                <span>1,200+ раз</span>
+                            </div>
+                            <div class="w-full bg-white/30 rounded-full h-2">
+                                <div class="bg-white h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4 mb-8">
+                            <div>
+                                <div class="text-sm text-blue-100">Включено:</div>
+                                <ul class="mt-2 space-y-1">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-sm mr-2"></i>
+                                        <span class="text-sm">Проживание</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-sm mr-2"></i>
+                                        <span class="text-sm">Трансферы</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <div class="text-sm text-blue-100">Экскурсии:</div>
+                                <ul class="mt-2 space-y-1">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-map-marker-alt text-sm mr-2"></i>
+                                        <span class="text-sm">15 локаций</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-camera text-sm mr-2"></i>
+                                        <span class="text-sm">Фото-точки</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <a href="#" class="block text-center px-6 py-3 bg-white text-blue-600 rounded-lg font-bold hover:bg-gray-100 transition">
+                            Посмотреть детали
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Маршрут 2 -->
+                <div class="bg-gradient-to-r from-green-500 to-teal-600 rounded-2xl shadow-xl overflow-hidden">
+                    <div class="p-8 text-white">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold mb-2">Азиатское приключение</h3>
+                                <p class="text-green-100">Бангкок → Бали → Токио</p>
+                            </div>
+                            <div class="bg-white/20 px-3 py-1 rounded-full text-sm">
+                                14 дней
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <div class="flex justify-between text-sm mb-2">
+                                <span>Маршрут пройден:</span>
+                                <span>850+ раз</span>
+                            </div>
+                            <div class="w-full bg-white/30 rounded-full h-2">
+                                <div class="bg-white h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4 mb-8">
+                            <div>
+                                <div class="text-sm text-green-100">Включено:</div>
+                                <ul class="mt-2 space-y-1">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-sm mr-2"></i>
+                                        <span class="text-sm">Отели 4*</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-sm mr-2"></i>
+                                        <span class="text-sm">Питание</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <div class="text-sm text-green-100">Активности:</div>
+                                <ul class="mt-2 space-y-1">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-water text-sm mr-2"></i>
+                                        <span class="text-sm">Дайвинг</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-hiking text-sm mr-2"></i>
+                                        <span class="text-sm">Трекинг</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <a href="#" class="block text-center px-6 py-3 bg-white text-green-600 rounded-lg font-bold hover:bg-gray-100 transition">
+                            Посмотреть детали
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Личный кабинет (превью) -->
+    <section id="account" class="py-20 bg-gray-900 text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Личный кабинет</h2>
+                <p class="text-gray-300 max-w-2xl mx-auto text-lg">Управляйте своими поездками в одном месте</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Мои поездки -->
+                <div class="bg-gray-800 rounded-xl p-6">
+                    <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-suitcase text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Мои поездки</h3>
+                    <p class="text-gray-400 text-sm mb-4">Все запланированные и завершённые путешествия</p>
+                    <div class="text-blue-400 font-medium">3 активных поездки</div>
+                </div>
+
+                <!-- Бронирования -->
+                <div class="bg-gray-800 rounded-xl p-6">
+                    <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-receipt text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Бронирования</h3>
+                    <p class="text-gray-400 text-sm mb-4">Билеты, отели, туры и другие заказы</p>
+                    <div class="text-green-400 font-medium">5 активных броней</div>
+                </div>
+
+                <!-- Настройки -->
+                <div class="bg-gray-800 rounded-xl p-6">
+                    <div class="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-cog text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Настройки</h3>
+                    <p class="text-gray-400 text-sm mb-4">Персонализация профиля и уведомлений</p>
+                    <div class="text-purple-400 font-medium">Настроить</div>
+                </div>
+
+                <!-- Избранное -->
+                <div class="bg-gray-800 rounded-xl p-6">
+                    <div class="w-12 h-12 bg-yellow-500 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-heart text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Избранное</h3>
+                    <p class="text-gray-400 text-sm mb-4">Сохранённые направления и маршруты</p>
+                    <div class="text-yellow-400 font-medium">12 сохранённых</div>
+                </div>
+            </div>
+
+            <!-- CTA для регистрации -->
+            <div class="mt-16 text-center">
+                <h3 class="text-2xl font-bold mb-6">Начните планировать свою первую поездку!</h3>
+                <a href="#signup" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl font-bold text-lg hover:opacity-90 transition">
+                    <i class="fas fa-user-plus mr-3"></i> Создать аккаунт бесплатно
+                </a>
+                <p class="text-gray-400 mt-4">Уже есть аккаунт? <a href="#login" class="text-blue-400 hover:text-blue-300">Войти</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="bg-gray-950 text-gray-400 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-globe-americas text-white text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-bold text-white">TravelMaster</span>
+                    </div>
+                    <p class="mb-6">Планируйте путешествия легко и удобно с нашим сервисом</p>
+                    <div class="flex space-x-4">
+                        <!-- ЗАМЕНА: Telegram -->
+                        <a href="https://t.me/travelmaster_support"
+                           target="_blank"
+                           class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-500 transition"
+                           title="Наш Telegram">
+                            <i class="fab fa-telegram-plane"></i>
+                        </a>
+
+                        <!-- ЗАМЕНА: WhatsApp -->
+                        <a href="https://wa.me/79991234567"
+                           target="_blank"
+                           class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition"
+                           title="Наш WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+
+                        <!-- ЗАМЕНА: Email -->
+                        <a href="mailto:support@travelmaster.com"
+                           class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-red-500 transition"
+                           title="Написать на почту">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+
+                        <!-- ЗАМЕНА: Телефон -->
+                        <a href="tel:+79991234567"
+                           class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition"
+                           title="Позвонить нам">
+                            <i class="fas fa-phone-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Колонка 2 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Продукт</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#features" class="text-gray-400 hover:text-white transition">Возможности</a></li>
+                        <li><a href="#pricing" class="text-gray-400 hover:text-white transition">Тарифы</a></li>
+                        <li><a href="#destinations" class="text-gray-400 hover:text-white transition">Направления</a></li>
+                        <li><a href="#updates" class="text-gray-400 hover:text-white transition">Что нового</a></li>
+                        <li><a href="#integrations" class="text-gray-400 hover:text-white transition">Интеграции</a></li>
+                    </ul>
+                </div>
+
+                <!-- Колонка 3 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Ресурсы</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#blog" class="text-gray-400 hover:text-white transition">Блог о путешествиях</a></li>
+                        <li><a href="#guides" class="text-gray-400 hover:text-white transition">Гайды</a></li>
+                        <li><a href="#webinars" class="text-gray-400 hover:text-white transition">Вебинары</a></li>
+                        <li><a href="#community" class="text-gray-400 hover:text-white transition">Сообщество</a></li>
+                        <li><a href="#support" class="text-gray-400 hover:text-white transition">Поддержка</a></li>
+                    </ul>
+                </div>
+
+                <!-- Колонка 4 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Контакты</h3>
+                    <!-- ЗАМЕНА: Список контактов -->
+                    <ul class="space-y-4">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-blue-400 mr-3"></i>
+                            <span class="text-gray-400">support@travelmaster.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone text-blue-400 mr-3"></i>
+                            <span class="text-gray-400">+7 (999) 123-45-67</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fab fa-telegram-plane text-blue-400 mr-3"></i>
+                            <span class="text-gray-400">@travelmaster_support</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fab fa-whatsapp text-blue-400 mr-3"></i>
+                            <span class="text-gray-400">+7 (999) 123-45-67</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-blue-400 mr-3"></i>
+                            <span class="text-gray-400">Москва, ул. Путешественников, 15</span>
+                        </li>
+                    </ul>
+
+                    <!-- Форма подписки (оставляем как было) -->
+                    <div class="mt-8">
+                        <h4 class="font-bold mb-4">Подпишитесь на рассылку</h4>
+                        <div class="flex">
+                            <input type="email" placeholder="Ваш email" class="bg-gray-800 text-white px-4 py-3 rounded-l-lg w-full focus:outline-none">
+                            <button class="bg-blue-600 px-4 py-3 rounded-r-lg hover:bg-blue-700 transition">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Нижняя часть футера (не меняем) -->
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm mb-4 md:mb-0">
+                    © 2024 TravelMaster. Все права защищены.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#privacy" class="text-gray-500 hover:text-white text-sm transition">Конфиденциальность</a>
+                    <a href="#terms" class="text-gray-500 hover:text-white text-sm transition">Условия использования</a>
+                    <a href="#cookies" class="text-gray-500 hover:text-white text-sm transition">Cookie</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
