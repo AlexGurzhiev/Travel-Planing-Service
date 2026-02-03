@@ -1,0 +1,409 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Частые вопросы | TravelMaster</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="scripts.js" defer></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Навигация (обновленная) -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-sm shadow-lg z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-globe-americas text-white text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-bold text-gray-800">TravelMaster</span>
+                    </a>
+                </div>
+
+                <div class="hidden lg:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 font-medium">Главная</a>
+                    <a href="index.html#destinations" class="text-gray-700 hover:text-blue-600 font-medium">Направления</a>
+                    <a href="index.html#booking" class="text-gray-700 hover:text-blue-600 font-medium">Бронирование</a>
+                    <a href="faq.html" class="text-blue-600 font-bold border-b-2 border-blue-600">FAQ</a>
+                    <a href="contacts.html" class="text-gray-700 hover:text-blue-600 font-medium">Контакты</a>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <button class="lg:hidden text-gray-700">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                    <a href="#login" class="hidden lg:block px-4 py-2 text-blue-600 font-medium">Войти</a>
+                    <a href="#signup" class="px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-medium hover:opacity-90 transition">Начать планировать</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Герой-секция FAQ -->
+    <section class="pt-32 pb-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Часто задаваемые вопросы</h1>
+                <p class="text-xl text-blue-100">Ответы на самые популярные вопросы о нашем сервисе планирования путешествий</p>
+
+                <!-- Поиск по вопросам -->
+                <div class="mt-10 max-w-2xl mx-auto">
+                    <div class="relative">
+                        <input type="text"
+                               placeholder="Поиск по вопросам..."
+                               class="w-full px-6 py-4 rounded-xl text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                               id="faqSearch">
+                        <button class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Основной контент FAQ -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <!-- Категория 1: Регистрация и аккаунт -->
+                <div class="mb-16">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-8 flex items-center">
+                        <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-user text-blue-600"></i>
+                        </div>
+                        Регистрация и аккаунт
+                    </h2>
+
+                    <div class="space-y-4">
+                        <div class="faq-item">
+                            <button class="faq-question w-full px-6 py-5 flex justify-between items-center text-left font-bold text-gray-800 hover:text-blue-600 transition"
+                                    onclick="toggleFaq('faq1')">
+                                <span>Как зарегистрироваться на TravelMaster?</span>
+                                <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                            </button>
+                            <div class="faq-answer px-6 py-4 bg-gray-50 hidden" id="faq1">
+                                <p class="text-gray-600 mb-3">Регистрация занимает менее 2 минут:</p>
+                                <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                                    <li>Нажмите "Начать планировать" в правом верхнем углу</li>
+                                    <li>Введите ваш email и придумайте пароль</li>
+                                    <li>Подтвердите email по ссылке в письме</li>
+                                    <li>Заполните базовую информацию о себе</li>
+                                    <li>Начните планировать свою первую поездку!</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question w-full px-6 py-5 flex justify-between items-center text-left font-bold text-gray-800 hover:text-blue-600 transition"
+                                    onclick="toggleFaq('faq2')">
+                                <span>Можно ли использовать сервис без регистрации?</span>
+                                <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                            </button>
+                            <div class="faq-answer px-6 py-4 bg-gray-50 hidden" id="faq2">
+                                <p class="text-gray-600">Да, вы можете просматривать направления и готовые маршруты без регистрации. Однако для сохранения маршрутов, бронирования и использования всех функций необходимо создать аккаунт.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Категория 2: Планирование и маршруты -->
+                <div class="mb-16">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-8 flex items-center">
+                        <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-route text-green-600"></i>
+                        </div>
+                        Планирование и маршруты
+                    </h2>
+
+                    <div class="space-y-4">
+                        <div class="faq-item">
+                            <button class="faq-question w-full px-6 py-5 flex justify-between items-center text-left font-bold text-gray-800 hover:text-blue-600 transition"
+                                    onclick="toggleFaq('faq3')">
+                                <span>Как работает конструктор маршрутов?</span>
+                                <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                            </button>
+                            <div class="faq-answer px-6 py-4 bg-gray-50 hidden" id="faq3">
+                                <p class="text-gray-600">Наш ИИ-конструктор создает персонализированные маршруты:</p>
+                                <ul class="list-disc pl-5 space-y-2 mt-2 text-gray-600">
+                                    <li>Выбираете город и даты поездки</li>
+                                    <li>Отмечаете ваши интересы (музеи, гастрономия, природа и т.д.)</li>
+                                    <li>Система учитывает время работы мест, отзывы и расстояние</li>
+                                    <li>Генерируется почасовой план на каждый день</li>
+                                    <li>Вы можете вручную редактировать любой пункт</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question w-full px-6 py-5 flex justify-between items-center text-left font-bold text-gray-800 hover:text-blue-600 transition"
+                                    onclick="toggleFaq('faq4')">
+                                <span>Можно ли планировать поездку с друзьями?</span>
+                                <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                            </button>
+                            <div class="faq-answer px-6 py-4 bg-gray-50 hidden" id="faq4">
+                                <p class="text-gray-600">Да, мы поддерживаем совместное планирование:</p>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
+                                    <div class="bg-white p-4 rounded-lg">
+                                        <h4 class="font-bold text-blue-600 mb-2">Совместный доступ</h4>
+                                        <p class="text-sm text-gray-600">Пригласите друзей по email или ссылке</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg">
+                                        <h4 class="font-bold text-blue-600 mb-2">Голосование</h4>
+                                        <p class="text-sm text-gray-600">Голосуйте за места, которые хотите посетить</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg">
+                                        <h4 class="font-bold text-blue-600 mb-2">Общий бюджет</h4>
+                                        <p class="text-sm text-gray-600">Отслеживайте общие расходы</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg">
+                                        <h4 class="font-bold text-blue-600 mb-2">Чат поездки</h4>
+                                        <p class="text-sm text-gray-600">Обсуждайте планы встроенным чатом</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Категория 3: Бронирование и оплата -->
+                <div class="mb-16">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-8 flex items-center">
+                        <div class="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-credit-card text-yellow-600"></i>
+                        </div>
+                        Бронирование и оплата
+                    </h2>
+
+                    <div class="space-y-4">
+                        <div class="faq-item">
+                            <button class="faq-question w-full px-6 py-5 flex justify-between items-center text-left font-bold text-gray-800 hover:text-blue-600 transition"
+                                    onclick="toggleFaq('faq5')">
+                                <span>Какие способы оплаты вы принимаете?</span>
+                                <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                            </button>
+                            <div class="faq-answer px-6 py-4 bg-gray-50 hidden" id="faq5">
+                                <p class="text-gray-600 mb-3">Доступные способы оплаты:</p>
+                                <div class="flex flex-wrap gap-3">
+                                    <span class="px-3 py-1 bg-gray-100 rounded-full text-gray-700">Visa</span>
+                                    <span class="px-3 py-1 bg-gray-100 rounded-full text-gray-700">MasterCard</span>
+                                    <span class="px-3 py-1 bg-gray-100 rounded-full text-gray-700">Мир</span>
+                                    <span class="px-3 py-1 bg-gray-100 rounded-full text-gray-700">Apple Pay</span>
+                                    <span class="px-3 py-1 bg-gray-100 rounded-full text-gray-700">Google Pay</span>
+                                    <span class="px-3 py-1 bg-gray-100 rounded-full text-gray-700">ЮMoney</span>
+                                </div>
+                                <p class="text-gray-600 mt-4 text-sm">Все платежи защищены 256-битным SSL-шифрованием. Мы не храним данные вашей карты.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question w-full px-6 py-5 flex justify-between items-center text-left font-bold text-gray-800 hover:text-blue-600 transition"
+                                    onclick="toggleFaq('faq6')">
+                                <span>Как отменить или изменить бронирование?</span>
+                                <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                            </button>
+                            <div class="faq-answer px-6 py-4 bg-gray-50 hidden" id="faq6">
+                                <p class="text-gray-600">Порядок отмены бронирования:</p>
+                                <ol class="list-decimal pl-5 space-y-2 mt-2 text-gray-600">
+                                    <li>Зайдите в раздел "Мои поездки"</li>
+                                    <li>Выберите нужную бронь и нажмите "Изменить"</li>
+                                    <li>Для отмены: нажмите "Отменить бронирование"</li>
+                                    <li>Подтвердите отмену</li>
+                                </ol>
+                                <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+                                    <p class="text-blue-800 font-medium">⚠️ Важно:</p>
+                                    <p class="text-blue-700 text-sm mt-1">Условия отмены и штрафы зависят от отеля/авиакомпании. Полная информация указана в условиях бронирования.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Не нашли ответ? -->
+                <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 text-center">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Не нашли ответ на свой вопрос?</h3>
+                    <p class="text-gray-600 mb-6">Свяжитесь с нашей службой поддержки, мы поможем!</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="contacts.html" class="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition">
+                            <i class="fas fa-headset mr-2"></i> Написать в поддержку
+                        </a>
+                        <a href="contacts.html#contactForm" class="px-6 py-3 bg-white text-blue-600 border border-blue-600 rounded-lg font-medium hover:bg-blue-50 transition">
+                            <i class="fas fa-envelope mr-2"></i> Задать вопрос
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // FAQ функционал
+            document.querySelectorAll('.faq-question').forEach(button => {
+                button.addEventListener('click', function () {
+                    const answer = this.nextElementSibling;
+                    const icon = this.querySelector('i');
+
+                    if (answer && answer.classList.contains('faq-answer')) {
+                        // Закрываем другие
+                        document.querySelectorAll('.faq-answer').forEach(el => {
+                            if (el !== answer) {
+                                el.classList.add('hidden');
+                                const otherIcon = el.previousElementSibling.querySelector('i');
+                                if (otherIcon) otherIcon.classList.remove('rotate-180');
+                                el.previousElementSibling.classList.remove('active', 'text-blue-600');
+                            }
+                        });
+
+                        // Переключаем текущий
+                        answer.classList.toggle('hidden');
+                        this.classList.toggle('active');
+                        this.classList.toggle('text-blue-600');
+
+                        if (icon) {
+                            icon.classList.toggle('rotate-180');
+                        }
+                    }
+                });
+            });
+
+            // Открываем первый
+            const firstFaq = document.querySelector('.faq-question');
+            if (firstFaq) {
+                const firstAnswer = firstFaq.nextElementSibling;
+                if (firstAnswer && firstAnswer.classList.contains('faq-answer')) {
+                    firstAnswer.classList.remove('hidden');
+                    firstFaq.classList.add('active', 'text-blue-600');
+                    const icon = firstFaq.querySelector('i');
+                    if (icon) icon.classList.add('rotate-180');
+                }
+            }
+        });
+    </script>
+    <!-- Футер -->
+    <footer class="bg-gray-950 text-gray-400 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-globe-americas text-white text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-bold text-white">TravelMaster</span>
+                    </div>
+                    <p class="mb-6">Планируйте путешествия легко и удобно с нашим сервисом</p>
+                    <div class="flex space-x-4">
+                        <!-- ЗАМЕНА: Telegram -->
+                        <a href="https://t.me/travelmaster_support"
+                           target="_blank"
+                           class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-500 transition"
+                           title="Наш Telegram">
+                            <i class="fab fa-telegram-plane"></i>
+                        </a>
+
+                        <!-- ЗАМЕНА: WhatsApp -->
+                        <a href="https://wa.me/79991234567"
+                           target="_blank"
+                           class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition"
+                           title="Наш WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+
+                        <!-- ЗАМЕНА: Email -->
+                        <a href="mailto:support@travelmaster.com"
+                           class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-red-500 transition"
+                           title="Написать на почту">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+
+                        <!-- ЗАМЕНА: Телефон -->
+                        <a href="tel:+79991234567"
+                           class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition"
+                           title="Позвонить нам">
+                            <i class="fas fa-phone-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Колонка 2 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Продукт</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#features" class="text-gray-400 hover:text-white transition">Возможности</a></li>
+                        <li><a href="#pricing" class="text-gray-400 hover:text-white transition">Тарифы</a></li>
+                        <li><a href="#destinations" class="text-gray-400 hover:text-white transition">Направления</a></li>
+                        <li><a href="#updates" class="text-gray-400 hover:text-white transition">Что нового</a></li>
+                        <li><a href="#integrations" class="text-gray-400 hover:text-white transition">Интеграции</a></li>
+                    </ul>
+                </div>
+
+                <!-- Колонка 3 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Ресурсы</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#blog" class="text-gray-400 hover:text-white transition">Блог о путешествиях</a></li>
+                        <li><a href="#guides" class="text-gray-400 hover:text-white transition">Гайды</a></li>
+                        <li><a href="#webinars" class="text-gray-400 hover:text-white transition">Вебинары</a></li>
+                        <li><a href="#community" class="text-gray-400 hover:text-white transition">Сообщество</a></li>
+                        <li><a href="#support" class="text-gray-400 hover:text-white transition">Поддержка</a></li>
+                    </ul>
+                </div>
+
+                <!-- Колонка 4 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Контакты</h3>
+                    <!-- ЗАМЕНА: Список контактов -->
+                    <ul class="space-y-4">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-blue-400 mr-3"></i>
+                            <span class="text-gray-400">support@travelmaster.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone text-blue-400 mr-3"></i>
+                            <span class="text-gray-400">+7 (999) 123-45-67</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fab fa-telegram-plane text-blue-400 mr-3"></i>
+                            <span class="text-gray-400">@travelmaster_support</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fab fa-whatsapp text-blue-400 mr-3"></i>
+                            <span class="text-gray-400">+7 (999) 123-45-67</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-blue-400 mr-3"></i>
+                            <span class="text-gray-400">Москва, ул. Путешественников, 15</span>
+                        </li>
+                    </ul>
+
+                    <!-- Форма подписки (оставляем как было) -->
+                    <div class="mt-8">
+                        <h4 class="font-bold mb-4">Подпишитесь на рассылку</h4>
+                        <div class="flex">
+                            <input type="email" placeholder="Ваш email" class="bg-gray-800 text-white px-4 py-3 rounded-l-lg w-full focus:outline-none">
+                            <button class="bg-blue-600 px-4 py-3 rounded-r-lg hover:bg-blue-700 transition">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Нижняя часть футера (не меняем) -->
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm mb-4 md:mb-0">
+                    © 2024 TravelMaster. Все права защищены.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#privacy" class="text-gray-500 hover:text-white text-sm transition">Конфиденциальность</a>
+                    <a href="#terms" class="text-gray-500 hover:text-white text-sm transition">Условия использования</a>
+                    <a href="#cookies" class="text-gray-500 hover:text-white text-sm transition">Cookie</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

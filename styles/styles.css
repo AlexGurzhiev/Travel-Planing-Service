@@ -1,32 +1,36 @@
-/* styles.css */
+/* styles/style.css */
 
+/* ========== ОСНОВНЫЕ СТИЛИ ========== */
 * {
     font-family: 'Poppins', sans-serif;
 }
 
-/* Герой-секция с фоновым изображением */
+/* ========== ГЕРОЙ-СЕКЦИЯ ========== */
 .hero-bg {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
 }
 
-/* Анимация для карточек направлений */
+/* ========== КАРТОЧКИ НАПРАВЛЕНИЙ ========== */
 .destination-card:hover .destination-img {
     transform: scale(1.05);
     transition: transform 0.5s ease;
 }
 
-/* Анимация для шагов бронирования */
+/* ========== БРОНИРОВАНИЕ ========== */
 .booking-step:hover {
     transform: translateY(-10px);
     transition: all 0.3s ease;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* Стили для заголовков секций */
+/* ========== ЗАГОЛОВКИ СЕКЦИЙ ========== */
 .section-title {
     position: relative;
     padding-bottom: 15px;
+    display: inline-block;
 }
 
     .section-title:after {
@@ -39,45 +43,73 @@
         background: #3b82f6;
     }
 
-/* Центрированный заголовок */
-.section-title-center:after {
-    left: 50%;
-    transform: translateX(-50%);
+.section-title-center {
+    position: relative;
+    padding-bottom: 15px;
+    display: inline-block;
 }
 
-/* Дополнительные стили для красоты */
-.shadow-soft {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    .section-title-center:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: #3b82f6;
+    }
+
+/* ========== FAQ АККОРДЕОН ========== */
+.faq-question:hover {
+    background-color: #f9fafb;
 }
 
-.hover-lift:hover {
+.faq-question.active {
+    color: #3b82f6;
+}
+
+    .faq-question.active i {
+        transform: rotate(180deg);
+        transition: transform 0.3s ease;
+    }
+
+.rotate-180 {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.faq-item {
+    border-bottom: 1px solid #e5e7eb;
+}
+
+    .faq-item:last-child {
+        border-bottom: none;
+    }
+
+/* ========== КОНТАКТНЫЕ КАРТОЧКИ ========== */
+.contact-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease;
 }
 
-.gradient-text {
-    background: linear-gradient(45deg, #3b82f6, #8b5cf6);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+/* ========== СТРАНИЦА 404 ========== */
+.floating {
+    animation: float 6s ease-in-out infinite;
 }
 
-/* Адаптивные изображения */
-.responsive-img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+.pulse {
+    animation: pulse 2s infinite;
 }
 
-/* Анимация появления */
-.fade-in {
-    animation: fadeIn 0.8s ease-in-out;
-}
-
+/* ========== АНИМАЦИИ ========== */
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(-10px);
     }
 
     to {
@@ -85,3 +117,67 @@
         transform: translateY(0);
     }
 }
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ========== УТИЛИТЫ ========== */
+.shadow-soft {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease;
+}
+
+.gradient-text {
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.responsive-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* ========== МОБИЛЬНОЕ МЕНЮ ========== */
+.mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+    .mobile-menu.open {
+        max-height: 500px;
+        transition: max-height 0.5s ease-in;
+    }
